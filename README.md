@@ -31,7 +31,7 @@ You can pass several options to this function, everything is optional:
 |`ticker` |On Android you can show a different text in the statusbar, instead of the `body`. Default not set, so `body` is used.|
 |`at`     |A JavaScript Date object indicating when the notification should be shown. Default 'now'.|
 |`badge`  |On iOS (and some Android devices) you see a number on top of the app icon. On most Android devices you'll see this number in the notification center. Default not set (0).|
-|`sound`  |Currently this is only used on Android where you can set this to `null` to suppress the sound. Default 'the default notification sound'.|
+|`sound`  |Currently this is only used on Android where you can set this to `null` to suppress the sound. Default sound is the sound file located at /Appresources/raw/notify.mp3|
 
 ```js
   LocalNotifications.schedule([{
@@ -139,4 +139,7 @@ If the `requestPermission` or `schedule` functions previously ran you may want t
 
 ## Future work
 Let us know what you need by opening a Github issue.
+We're thinking about adding support for things like:
+
+    Multiple custom sounds
 
