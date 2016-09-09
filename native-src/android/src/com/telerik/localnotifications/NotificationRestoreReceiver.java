@@ -47,7 +47,7 @@ public class NotificationRestoreReceiver extends BroadcastReceiver {
             .setContentText(options.optString("body"))
             .setSmallIcon(options.optInt("icon"))
             .setAutoCancel(true)
-            .setSound(options.has("sound") ? Uri.parse((String)("android.resource://" + context.getPackageName() + "/raw/" + options.optString("sound"))) : Uri.parse((String)("android.resource://" + context.getPackageName() + "/raw/notify")) 
+            .setSound(options.has("sound") ? Uri.parse((String)("android.resource://" + context.getPackageName() + "/raw/" + options.optString("sound"))) : Uri.parse((String)("android.resource://" + context.getPackageName() + "/raw/notify"))) 
             .setNumber(options.optInt("badge"))
             .setTicker(options.optString("ticker"));
 
