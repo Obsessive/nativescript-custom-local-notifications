@@ -40,14 +40,14 @@ public class NotificationRestoreReceiver extends BroadcastReceiver {
       String notificationString = (String) item.getValue();
       try {
         JSONObject options = new JSONObject(notificationString);
-
+        
         final Builder builder = new Builder(context)
             .setDefaults(0)
             .setContentTitle(options.optString("title"))
             .setContentText(options.optString("body"))
             .setSmallIcon(options.optInt("icon"))
             .setAutoCancel(true)
-            .setSound(options.has("sound") ? Uri.parse("android.resource://" + context.getPackageName() + "/raw/notify") : null)
+            .setSound(options.has("sound") ? Uri.parse((String)("android.resource://" + context.getPackageName() + "/raw/" + options.optString("sound"))) : Uri.parse((String)("android.resource://" + context.getPackageName() + "/raw/notify")) 
             .setNumber(options.optInt("badge"))
             .setTicker(options.optString("ticker"));
 
