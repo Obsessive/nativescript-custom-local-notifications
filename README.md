@@ -5,7 +5,7 @@ The Local Notifications plugin allows your app to show notifications when the ap
 Just like remote push notifications, but a few orders of magnitude easier to set up.
 
 For Custom sound, 
-Add a folder called 'raw' in /app/App_Resources/Android and add your custom sound with the name 'notify.mp3'
+Add a folder called 'raw' in /app/App_Resources/Android and add your custom sounds.
 
 ## Note
 This repository is a fork of the local notifications plugin by Eddy Verbruggen (eddyverbruggen). So big thanks to Eddy Verbruggen - Team Obsessive.
@@ -32,7 +32,24 @@ You can pass several options to this function, everything is optional:
 |`at`     |A JavaScript Date object indicating when the notification should be shown. Default 'now'.|
 |`badge`  |On iOS (and some Android devices) you see a number on top of the app icon. On most Android devices you'll see this number in the notification center. Default not set (0).|
 |`sound`  |Currently this is only used on Android where you can set this to `null` to suppress the sound. Default sound is the sound file located at /Appresources/raw/notify.mp3|
-
+```js
+LocalNotifications.schedule([{
+    id: 1,
+    title: 'The first title',
+    body: 'The first  body',
+    ticker: 'The ticker',
+    badge: 1,
+    sound: "sound1", //sound1 from /Appresources/raw/ folder
+    at: new Date(new Date().getTime() + (20 * 1000)) 
+  }]).then(
+      function() {
+        console.log("Notification scheduled 1");
+      },
+      function(error) {
+        console.log("scheduling error: " + error);
+      }
+  );
+```
 ```js
   LocalNotifications.schedule([{
     id: 1,
@@ -137,9 +154,6 @@ If the `requestPermission` or `schedule` functions previously ran you may want t
   )
 ```
 
-## Future work
-Let us know what you need by opening a Github issue.
-We're thinking about adding support for things like:
-
-    Multiple custom sounds
+## Contributors
+- [b3nnee](https://github.com/b3nnee)
 
